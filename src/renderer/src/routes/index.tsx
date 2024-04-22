@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Button } from "~/components/ui/button";
 import { CardContent, Card, CardTitle, CardHeader } from "~/components/ui/card";
-import { DatePickerWithRange } from "~/components/DateRange";
+import { DatePickerWithRange } from "~/components/DatePickerWithRange";
 export const Route = createFileRoute("/")({
   component: Index,
 });
