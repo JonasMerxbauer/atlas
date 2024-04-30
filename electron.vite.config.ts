@@ -5,6 +5,11 @@ import { TanStackRouterVite } from "@tanstack/router-vite-plugin";
 
 export default defineConfig({
   main: {
+    resolve: {
+      alias: {
+        "~main": resolve("src/renderer/src"),
+      },
+    },
     plugins: [externalizeDepsPlugin(), TanStackRouterVite()],
   },
   preload: {
@@ -17,5 +22,8 @@ export default defineConfig({
       },
     },
     plugins: [react()],
+    optimizeDeps: {
+      exclude: ["oslo"],
+    },
   },
 });
