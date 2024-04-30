@@ -7,7 +7,7 @@ export default defineConfig({
   main: {
     resolve: {
       alias: {
-        "~main": resolve("src/renderer/src"),
+        "~main": resolve("src/main"),
       },
     },
     plugins: [externalizeDepsPlugin(), TanStackRouterVite()],
