@@ -1,8 +1,8 @@
 import { trpc } from "~/lib/trpc";
 
 export function HelloElectron() {
-  const { data } = trpc.greeting.useQuery({ name: "Electron" });
-  trpc.subscription.useSubscription(undefined, {
+  const { data } = trpc.post.greeting.useQuery({ name: "Electron" });
+  trpc.post.subscription.useSubscription(undefined, {
     onData: (data) => {
       console.log(data);
     },

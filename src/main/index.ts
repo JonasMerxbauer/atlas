@@ -3,7 +3,7 @@ import { join } from "path";
 import { electronApp, optimizer, is } from "@electron-toolkit/utils";
 import icon from "../../resources/icon.png";
 import { createIPCHandler } from "electron-trpc/main";
-import { router } from "./api";
+import { appRouter } from "./api/root";
 
 function createWindow(): BrowserWindow {
   // Create the browser window.
@@ -58,7 +58,7 @@ app.whenReady().then(() => {
 
   const window = createWindow();
 
-  createIPCHandler({ router, windows: [window] });
+  createIPCHandler({ router: appRouter, windows: [window] });
 
   app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
