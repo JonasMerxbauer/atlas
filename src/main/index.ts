@@ -4,6 +4,7 @@ import { electronApp, optimizer, is } from "@electron-toolkit/utils";
 import icon from "../../resources/icon.png";
 import { createIPCHandler } from "electron-trpc/main";
 import { appRouter } from "./api/root";
+import { createTRPCContext } from "./api/trpc";
 
 function createWindow(): BrowserWindow {
   // Create the browser window.
@@ -58,7 +59,11 @@ app.whenReady().then(() => {
 
   const window = createWindow();
 
-  createIPCHandler({ router: appRouter, windows: [window] });
+  createIPCHandler({
+    router: appRouter,
+    windows: [window],
+    createContext: createTRPCContext,
+  });
 
   app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
